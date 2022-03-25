@@ -83,6 +83,38 @@ def registrar_usuario():
         print("Nombre valido.")
     elif usuario_g in usuarios_password.keys():
         print("El nombre ingresado se encuentra ocupado.")
+        respuesta_invalida()
+                    
+        else:
+            print("Ingrese una opcion valida.")
+            respuesta_invalida = True
+    else:
+        print("El nombre ingresado debe tener minimo 5 caracteres")
+        respuesta_invalida = True
+
+        while respuesta_invalida:
+            respuesta = (input("¿Que desea hacer?\n[1] Reintentar \
+                [2] Menu de inicio: "))
+            if respuesta.isdigit():
+                if int(respuesta) == 1:
+                    registrar_usuario()
+                    respuesta_invalida = False
+                elif int(respuesta) == 2:
+                    main_menu()
+                else:
+                    print("Ingrese una opcion valida.")
+                    respuesta_invalida = True
+
+    password = input("Ingrese una contraseña: ")
+    print(f"{usuario_g},{password}")
+    if len(password) >= LARGO_CONTRASENA and password.isalnum():
+        print("Contraseña valida.")
+        print('Registro exitoso.')
+        with open("usuarios.csv","a",encoding='utf-8') as usuarios_act:
+            usuarios_act.write(f"{usuario_g},{password}\n")
+        menu_usuario()
+    elif len(password) < LARGO_CONTRASENA:
+        print("La contraseña debe ser de minimo 6 caracteres.")
         respuesta_invalida = True
         while respuesta_invalida:
             respuesta = (input("¿Que desea hacer?\n[1] Reintentar \
@@ -96,47 +128,26 @@ def registrar_usuario():
                 else:
                     print("Ingrese una opcion valida.")
                     respuesta_invalida = True
-                    
-            else:
-                print("Ingrese una opcion valida.")
-                respuesta_invalida = True
-    else:
-        print("El nombre ingresado debe tener minimo 5 caracteres")
-
-        respuesta = int(input("¿Que desea hacer?\n[1] Reintentar \
-                [2] Menu de inicio\n "))
-        if respuesta == 1:
-            registrar_usuario()
-        else:
-            main_menu()
-    password = input("Ingrese una contraseña: ")
-    print(f"{usuario_g},{password}")
-    if len(password) >= LARGO_CONTRASENA and password.isalnum():
-        print("Contraseña valida.")
-        print('Registro exitoso.')
-        with open("usuarios.csv","a",encoding='utf-8') as usuarios_act:
-            usuarios_act.write(f"{usuario_g},{password}\n")
-        menu_usuario()
-    elif len(password) < LARGO_CONTRASENA:
-        print("La contraseña debe ser de minimo 6 caracteres.")
-        respuesta = int(input("¿Que desea hacer?\n[1] Reintentar \
-                [2] Menu de inicio: "))
-        if respuesta == 1:
-            registrar_usuario()
-        else:
-            main_menu()
     else:
         print("La contraseña debe ser alfanumerica.")
-        respuesta = int(input("¿Que desea hacer?\n[1] Reintentar \
-                [2] Menu de inicio\nEliga una opcion: "))
-        if respuesta == 1:
-            registrar_usuario()
-        else:
-            main_menu()
+        respuesta_invalida = True
+        while respuesta_invalida:
+            respuesta = (input("¿Que desea hacer?\n[1] Reintentar \
+                [2] Menu de inicio: "))
+            if respuesta.isdigit():
+                if int(respuesta) == 1:
+                    registrar_usuario()
+                    respuesta_invalida = False
+                elif int(respuesta) == 2:
+                    main_menu()
+                else:
+                    print("Ingrese una opcion valida.")
+                    respuesta_invalida = True
      
 def menu_usuario():
     print("--- Bienvenido al menu de usuario ---")
-    respuesta = input("¿Que desea hacer?\n[1] Hacer encomienda \
+    respuesta = input(
+        "¿Que desea hacer?\n[1] Hacer encomienda \
                 [2] Revisar estado de encomiendas hechas \n[3] Realizar reclamo \
                 [4] Ver estado de pedidos personales\n[5] Cerrar sesion\n\nIndique su opcion: ")
     if respuesta.isdigit():
@@ -176,7 +187,8 @@ def menu_usuario():
 
 def menu_administrador():
     print("--- Bienvenido al menu de administrador ---")
-    respuesta = (input("\n¿Que desea hacer?\n[1] Actualizar encomiendas \
+    respuesta = (input(
+        "\n¿Que desea hacer?\n[1] Actualizar encomiendas \
                  [2] Revisar reclamos \n[3] Cerrar sesion \nEliga una opcion:"))
     if respuesta.isdigit():
 
@@ -195,7 +207,8 @@ def menu_administrador():
         menu_administrador()
 
 def menu_opciones_usuario():
-    decision = input("Que desea hacer: \n \n[1] Volver al menu anterior \n[2] Cerrar sesion \nEliga una opcion: ")
+    decision = input(
+        "Que desea hacer: \n \n[1] Volver al menu anterior \n[2] Cerrar sesion \nEliga una opcion: ")
     if decision.isdigit():
         if int(decision) == 1:
             menu_usuario()
@@ -206,7 +219,8 @@ def menu_opciones_usuario():
         menu_opciones_usuario()
         
 def menu_opciones_admin():
-    decision = input("Que desea hacer: \n \n[1] Volver al menu anterior \n[2] Cerrar sesion \nEliga una opcion: ")
+    decision = input(
+        "Que desea hacer: \n \n[1] Volver al menu anterior \n[2] Cerrar sesion \nEliga una opcion: ")
     if decision.isdigit():
         if int(decision) == 1:
             menu_administrador()
@@ -217,7 +231,8 @@ def menu_opciones_admin():
         menu_opciones_admin()
 
 def menu_opciones_main():
-    decision = input("Que desea hacer: \n \n[1] Volver al menu anterior \n[2] Cerrar programa \nEliga una opcion: ")
+    decision = input(
+        "Que desea hacer: \n \n[1] Volver al menu anterior \n[2] Cerrar programa \nEliga una opcion: ")
     if decision.isdigit():
         if int(decision) == 1:
             main_menu()
@@ -230,7 +245,8 @@ def menu_opciones_main():
 
 
 def menu_opciones_admin_reclamos():
-    decision = input("Que desea hacer: \n \n[1] Revisar otro reclamo\n[2] Volver al menu anterior \nEliga una opcion: ")
+    decision = input(
+        "Que desea hacer: \n \n[1] Revisar otro reclamo\n[2] Volver al menu anterior \nEliga una opcion: ")
     if decision.isdigit():
         if int(decision) == 1:
             revisar_reclamos()
@@ -240,6 +256,23 @@ def menu_opciones_admin_reclamos():
     else:
         print("Pruebe una opcion valida")
         menu_opciones_admin_reclamos()
+
+def respuesta_invalida():
+    respuesta_invalida = True
+
+        while respuesta_invalida:
+            respuesta = (input("¿Que desea hacer?\n[1] Reintentar \
+                [2] Menu de inicio: "))
+            if respuesta.isdigit():
+                if int(respuesta) == 1:
+                    registrar_usuario()
+                    respuesta_invalida = False
+                elif int(respuesta) == 2:
+                    main_menu()
+                else:
+                    print("Ingrese una opcion valida.")
+                    respuesta_invalida = True
+
 
 
 

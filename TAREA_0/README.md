@@ -1,4 +1,4 @@
-# Tarea X: Nombre de la tarea :school_satchel:
+# Tarea 0: DCCorreos :school_satchel:
 
 
 Un buen ```README.md``` puede marcar una gran diferencia en la facilidad con la que corregimos una tarea, y consecuentemente cómo funciona su programa, por lo en general, entre más ordenado y limpio sea éste, mejor será 
@@ -27,59 +27,49 @@ SINO QUE SE DEBERÁ EXPLICAR QUÉ SE REALIZO DETALLADAMENTE EN CADA ITEM.
 ⚠️⚠️
 #### Menú de Inicio (18pts) (18%)
 ##### ✅ Requisitos <explicacion\ Cumple con los requisitos. >
-##### ✅ Iniciar sesión <explicacion\ Consta de dos funciones, autentificar_usuario y autentificar_contrasena.Ambas revisan el archivo users para verificar que el usuario esta registrado>
-##### ✅ Ingresar como administrador <explicacion\ Consta de una funcion que verificar que la clave sea identica al parametro CONTRASENA_ADMIN>
-##### ✅ Registrar usuario <explicacion\ Consta de una funcion que verifica que el nombre sea valido y unico. Al igual que la contraseña>
+##### ✅ Iniciar sesión <explicacion\ Consta de dos funciones, autentificar_usuario y autentificar_contrasena.Ambas revisan el archivo users para verificar que el usuario este registrado>
+##### ✅ Ingresar como administrador <explicacion\ Se verifica que la clave sea identica al parametro CONTRASENA_ADMIN>
+##### ✅ Registrar usuario <explicacion\ Consta de una funcion registrar_usuario que verifica que el nombre sea valido y unico. Al igual que la contraseña>
 ##### ✅ Salir <explicacion\>
 #### Flujo del programa (31pts) (31%) 
-##### ✅ Menú de Usuario <explicacion\ Consta de una funcion que se encarga que se desplieguen 5 opciones a elegir despues de iniciar sesion o registrarse como usuario>
-##### ✅ Menú de Administrador <explicacion\ Consta de una funcion que se encarga que se desplieguen 3 opciones a elegir despues de iniciar sesion como administrador>
+##### ✅ Menú de Usuario <explicacion\ Consta de una funcion menu_usuario que se encarga que se desplieguen 5 opciones a elegir despues de iniciar sesion o registrarse como usuario>
+##### ✅ Menú de Administrador <explicacion\ Consta de una funcion menu_administrador que se encarga que se desplieguen 3 opciones a elegir despues de iniciar sesion como administrador>
 #### Entidades 15pts (15%)
-##### ❌✅🟠 Usuarios <explicacion\>
-##### ❌✅🟠 Encomiendas <explicacion\>
-##### ❌✅🟠 Reclamos <explicacion\>
+##### ✅ Usuarios <explicacion\ Almacenados en usuarios.csv. Se agrega al final del archivo cuando se llama a la funcion registrar_usuario >
+##### ✅ Encomiendas <explicacion\ Almacenadas en encomiendas.csv. Se agrega al final del archivo una nueva cuando se llama a la funcion ingresar_encomienda.>
+##### ✅ Reclamos <explicacion\ Almacenadas en encomiendasc.csv. Se agrega al final del archivo un reclamo nuevo cuando se llama a la funcion realizar_reclamo.>
 #### Archivos: 15 pts (15%)
 ##### 🟠 Manejo de Archivos <explicacion\ Mi manejo en el uso de archivos (tanto en write, read o append) no fue el optimo.
 >
 #### General: 21 pts (21%)
-##### ❌✅🟠 Menús <explicacion\>
-##### ❌✅🟠 Parámetros <explicacion\>
-##### ❌✅🟠 Módulos <explicacion\>
-##### ❌✅🟠 PEP8 <explicacion\>
+##### ✅ Menús <explicacion\ Funciona con fluidez. Para cada opcion que elige el usuario se llama a una funcion determinada. Al terminar la funcion se ofrece volver al menu inicial>
+##### ✅ Parámetros <explicacion\ Utilice los parametros dados.>
+##### ✅ Módulos <explicacion\ Importe lo justo y necesario. Date, Datetime para poder registrar la fecha exacta cuando se hace una encomienda.>
+##### 🟠 PEP8 <explicacion\ Mi estilo de programacion no fue el mas eficiente ni el mas bonito para esta entrega. Me costo aflojar la mano y sentirme comodo programando algo tan largo>
 ## Ejecución :computer:
-El módulo principal de la tarea a ejecutar es  ```main.py```. Además se debe crear los siguientes archivos y directorios adicionales:
-1. ```archivo.ext``` en ```ubicación```
-2. ```directorio``` en ```ubicación```
-3. ...
-
+El módulo principal de la tarea a ejecutar es  ```main.py```. 
 
 ## Librerías :books:
 ### Librerías externas utilizadas
 La lista de librerías externas que utilicé fue la siguiente:
 
-1. ```librería_1```: ```función() / módulo```
-2. ```librería_2```: ```función() / módulo``` (debe instalarse)
+1. ```libreria_1```: ```función(datetime) / datetime```
+2. ```librería_2```: ```función(date) / datetime``` 
 3. ...
 
 ### Librerías propias
 Por otro lado, los módulos que fueron creados fueron los siguientes:
 
-1. ```librería_1```: Contiene a ```ClaseA```, ```ClaseB```, (ser general, tampoco es necesario especificar cada una)...
-2. ```librería_2```: Hecha para <insertar descripción **breve** de lo que hace o qué contiene>
-3. ...
+1. ```funciones```,contiene funciones para la funcionalidad del programa.
 
 ## Supuestos y consideraciones adicionales :thinking:
 Los supuestos que realicé durante la tarea son los siguientes:
 
-1. <Descripción/consideración 1 y justificación del por qué es válido/a> 
-2. <Descripción/consideración 2 y justificación del por qué es válido/a>
-3. ...
 
 PD: <una última consideración (de ser necesaria) o comentario hecho anteriormente que se quiera **recalcar**>
 
 
 -------
-
 
 
 **EXTRA:** si van a explicar qué hace específicamente un método, no lo coloquen en el README mismo. Pueden hacerlo directamente comentando el método en su archivo. Por ejemplo:
@@ -110,7 +100,7 @@ Lo importante es que expliquen qué hace la función y que si saben que alguna p
 ## Referencias de código externo :book:
 
 Para realizar mi tarea saqué código de:
-1. \<link de código>: este hace \<lo que hace> y está implementado en el archivo <nombre.py> en las líneas <número de líneas> y hace <explicación breve de que hace>
+1. \<link stackoverflow.com>:  y está implementado en el archivo <funciones> en las líneas <número 124> y hace que que obtenga la fecha actual.
 
 
 

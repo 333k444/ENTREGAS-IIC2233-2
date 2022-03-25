@@ -12,14 +12,16 @@ def ingreso_encomienda():
 
     nombre_invalido = True   
     while nombre_invalido:
-        nombre_articulo = input("Ingrese el nombre del articulo: ")
+        nombre_articulo = input(
+            "Ingrese el nombre del articulo: ")
         if nombre_articulo.count(',') == 0:
             nombre_invalido = False
         else:
             print("--- El valor ingresado no puede tener comas (,) ---")
             a=True
             while a:
-                decision = input("Que desea hacer: \n \n [1] Continuar \n [2] Cancelar encomienda\nIngrese su opcion: ")
+                decision = input(
+                    "Que desea hacer: \n \n [1] Continuar \n [2] Cancelar encomienda\nIngrese su opcion: ")
                 if decision.isdigit():
                     if int(decision) == 1:
                         a = False
@@ -36,14 +38,16 @@ def ingreso_encomienda():
 
     destinatario_invalido = True
     while destinatario_invalido:        
-        nombre_destinatario = input("Ingrese el nombre del destinatario: ")
+        nombre_destinatario = input(
+            "Ingrese el nombre del destinatario: ")
         if nombre_destinatario in lista:
             destinatario_invalido = False
         else:
             print("--- El valor ingresado no cumple con los requisitos ---")
             a=True
             while a:
-                decision = input("Que desea hacer: \n \n [1] Continuar \n [2] Cancelar encomienda\nIngrese su opcion: ")
+                decision = input(
+                    "Que desea hacer: \n \n [1] Continuar \n [2] Cancelar encomienda\nIngrese su opcion: ")
                 if decision.isdigit():
                     if int(decision) == 1:
                         a = False
@@ -65,11 +69,10 @@ def ingreso_encomienda():
                 peso_invalido = False
             else:
                 print("--- El peso ingresado sobrepasa el maximo permitido ---")
-                decision = input("Que desea hacer: \n \n [1] Continuar \n [2] Cancelar encomienda\nIngrese su opcion: ")
-
                 a=True
                 while a:
-                    decision = input("Que desea hacer: \n \n [1] Continuar \n [2] Cancelar encomienda\nIngrese su opcion: ")
+                    decision = input(
+                        "Que desea hacer: \n \n [1] Continuar \n [2] Cancelar encomienda\nIngrese su opcion: ")
                     if decision.isdigit():
                         if int(decision) == 1:
                             a = False
@@ -98,7 +101,8 @@ def ingreso_encomienda():
             print("--- El valor ingresado no cumple con los requisitos ---")
             a = True
             while a:
-                decision = input("Que desea hacer: \n \n [1] Continuar \n [2] Cancelar encomienda\nIngrese su opcion: ")
+                decision = input(
+                    "Que desea hacer: \n \n [1] Continuar \n [2] Cancelar encomienda\nIngrese su opcion: ")
                 if decision.isdigit():
                     if int(decision) == 1:
                         a = False
@@ -112,15 +116,17 @@ def ingreso_encomienda():
                 else:
                     print("Ingrese una opcion valida.")
         
-    print("Datos entregados satisfactoriamente.")
+    print("\nDatos entregados satisfactoriamente.\n")
 
     #Codigo basado en stack overflow #Codigo basado en stack overflow
     now = datetime.now()
     tiempo = now.strftime("%H:%M:%S")
     fecha = date.today()
     #Codigo basado en stack overflow #Codigo basado en stack overflow
-    with open("encomiendas.csv" ,"a",encoding='utf-8') as encomiendas_write:
-        encomiendas_write.write(f"\n{nombre_articulo},{nombre_destinatario},{peso_articulo},{destino_articulo},{fecha} {tiempo},Emitida")
+    with open(
+        "encomiendas.csv" ,"a",encoding='utf-8') as encomiendas_write:
+        encomiendas_write.write(
+            f"\n{nombre_articulo},{nombre_destinatario},{peso_articulo},{destino_articulo},{fecha} {tiempo},Emitida")
 
 
 def estado_encomienda(nombre_usuario):
@@ -145,7 +151,8 @@ def realizar_reclamo(nombre_usuario):
     descripcion = input("Ingrese la descripcion del reclamo: ")
     with open ("reclamos.csv","a",encoding='utf-8') as reclamos:
         reclamos.write(f"\n{nombre_usuario},{titulo},{descripcion}")
-    print("\nSu reclamo fue enviado satisfactoriamente, lo revisaremos lo mas pronto posible.\n")
+    print(
+        "\nSu reclamo fue enviado satisfactoriamente, lo revisaremos lo mas pronto posible.\n")
 
 
     
@@ -161,7 +168,8 @@ def estado_encomiendas(nombre_usuario):
 
     for i in lista_encomiendas:
         if nombre_usuario == i[1]:
-            print(f"[{num}]  ||NOMBRE||: {i[0]}   ||USUARIO||: {i[1]}   ||PESO||: {i[2]}   ||DESTINO||: {i[3]}   ||FECHA||: {i[4]}   ||ESTADO||: {i[5]}")
+            print(
+                f"[{num}]  ||NOMBRE||: {i[0]}   ||USUARIO||: {i[1]}   ||PESO||: {i[2]}   ||DESTINO||: {i[3]}   ||FECHA||: {i[4]}   ||ESTADO||: {i[5]}")
             num +=1
             estado = True
     return estado
@@ -178,7 +186,8 @@ def actualizar_encomiendas():
     num = 1
 
     for i in lista_encomiendas:
-        print(f"[{num}]  |NOMBRE|: {i[0]}   |USUARIO|: {i[1]}   |PESO|: {i[2]}   |DESTINO|: {i[3]}   |FECHA|: {i[4]}   |ESTADO|: {i[5]}")
+        print(
+            f"[{num}]  |NOMBRE|: {i[0]}   |USUARIO|: {i[1]}   |PESO|: {i[2]}   |DESTINO|: {i[3]}   |FECHA|: {i[4]}   |ESTADO|: {i[5]}")
         num +=1
 
     seleccion = input('Seleccione el numero de encomienda que desea cambiar: ')
