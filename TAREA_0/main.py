@@ -23,8 +23,12 @@ def main_menu():
             else:
                 print("Contraseña erronea.")
                 menu_opciones_main()
-        else:
+        elif int(respuesta) == 4:
             print("Saliendo del programa...")
+
+        else:
+            print("Ingrese una opcion valida.")
+            main_menu()
     else:
         print("Ingrese una respuesta valida.")
         main_menu()
@@ -78,7 +82,7 @@ def registrar_usuario():
             lista_usuario.append(i.strip().split(","))
     for i in lista_usuario:
         usuarios_password[i[0]] = i[1]
-    usuario_g = input("Ingrese el nombre de su usuario:")
+    usuario_g = input("Ingrese el nombre de su usuario: ")
     if usuario_g not in usuarios_password.keys() and len(usuario_g) >= MIN_CARACTERES:
         print("Nombre valido.")
     elif usuario_g in usuarios_password.keys():
@@ -147,7 +151,7 @@ def menu_administrador():
     print("--- Bienvenido al menu de administrador ---")
     respuesta = (input(
         "\n¿Que desea hacer?\n[1] Actualizar encomiendas \
-                 [2] Revisar reclamos \n[3] Cerrar sesion \nEliga una opcion:"))
+                 [2] Revisar reclamos \n[3] Cerrar sesion \nEliga una opcion: "))
     if respuesta.isdigit():
 
         if int(respuesta) == 1:
