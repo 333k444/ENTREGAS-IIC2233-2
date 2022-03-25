@@ -64,6 +64,7 @@ Por otro lado, los módulos que fueron creados fueron los siguientes:
 
 ## Supuestos y consideraciones adicionales :thinking:
 Los supuestos que realicé durante la tarea son los siguientes:
+Me di cuenta tarde que mi registro de usuarios funciona cuando el archivo tiene una linea vacia al final. Por lo mismo, voy a entregar usuarios.csv con un una linea vacia alfinal del archivo.
 
 
 PD: <una última consideración (de ser necesaria) o comentario hecho anteriormente que se quiera **recalcar**>
