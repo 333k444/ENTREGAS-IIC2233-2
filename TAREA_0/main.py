@@ -43,7 +43,7 @@ def autentificar_usuario(usuario):
 
     if usuario not in usuarios_password.keys():
         print("El nombre de usuario no esta registrado.")
-        main_menu()
+        menu_opciones_main()
     
     else:
         autentificar_contraseña(usuario)
@@ -63,7 +63,7 @@ def autentificar_contraseña(usuario):
 
     if contraseña not in usuarios_password[usuario]:
         print("La contraseña es erronea.")
-        main_menu()
+        menu_opciones_main()
     else:
         print("Autentificacion exitosa.")
         menu_usuario() 
@@ -83,27 +83,11 @@ def registrar_usuario():
         print("Nombre valido.")
     elif usuario_g in usuarios_password.keys():
         print("El nombre ingresado se encuentra ocupado.")
-        respuesta_invalida()
+        menu_opciones_main()
                     
-        else:
-            print("Ingrese una opcion valida.")
-            respuesta_invalida = True
     else:
         print("El nombre ingresado debe tener minimo 5 caracteres")
-        respuesta_invalida = True
-
-        while respuesta_invalida:
-            respuesta = (input("¿Que desea hacer?\n[1] Reintentar \
-                [2] Menu de inicio: "))
-            if respuesta.isdigit():
-                if int(respuesta) == 1:
-                    registrar_usuario()
-                    respuesta_invalida = False
-                elif int(respuesta) == 2:
-                    main_menu()
-                else:
-                    print("Ingrese una opcion valida.")
-                    respuesta_invalida = True
+        menu_opciones_main()
 
     password = input("Ingrese una contraseña: ")
     print(f"{usuario_g},{password}")
@@ -115,34 +99,10 @@ def registrar_usuario():
         menu_usuario()
     elif len(password) < LARGO_CONTRASENA:
         print("La contraseña debe ser de minimo 6 caracteres.")
-        respuesta_invalida = True
-        while respuesta_invalida:
-            respuesta = (input("¿Que desea hacer?\n[1] Reintentar \
-                [2] Menu de inicio: "))
-            if respuesta.isdigit():
-                if int(respuesta) == 1:
-                    registrar_usuario()
-                    respuesta_invalida = False
-                elif int(respuesta) == 2:
-                    main_menu()
-                else:
-                    print("Ingrese una opcion valida.")
-                    respuesta_invalida = True
+        menu_opciones_main()
     else:
-        print("La contraseña debe ser alfanumerica.")
-        respuesta_invalida = True
-        while respuesta_invalida:
-            respuesta = (input("¿Que desea hacer?\n[1] Reintentar \
-                [2] Menu de inicio: "))
-            if respuesta.isdigit():
-                if int(respuesta) == 1:
-                    registrar_usuario()
-                    respuesta_invalida = False
-                elif int(respuesta) == 2:
-                    main_menu()
-                else:
-                    print("Ingrese una opcion valida.")
-                    respuesta_invalida = True
+        print('La valor ingresado debe ser alfanumerico.')
+        menu_opciones_main()
      
 def menu_usuario():
     print("--- Bienvenido al menu de usuario ---")
@@ -173,9 +133,7 @@ def menu_usuario():
                 menu_opciones_usuario()
             else:
                 print("No se encontraron encomiendas")
-                menu_opciones_usuario()
-
-            
+                menu_opciones_usuario() 
         elif int(respuesta) == 5:
             main_menu()
         else: 
@@ -214,6 +172,9 @@ def menu_opciones_usuario():
             menu_usuario()
         elif int(decision) == 2:
             main_menu()
+        else:
+            print("Pruebe una opcion valida")
+            menu_opciones_usuario()
     else:
         print("Pruebe una opcion valida")
         menu_opciones_usuario()
@@ -226,8 +187,10 @@ def menu_opciones_admin():
             menu_administrador()
         elif int(decision) == 2:
             main_menu()
+        else:
+            print("Pruebe una opcion valida.")
     else:
-        print("Pruebe una opcion valida")
+        print("Pruebe una opcion valida.")
         menu_opciones_admin()
 
 def menu_opciones_main():
@@ -239,6 +202,9 @@ def menu_opciones_main():
         elif int(decision) == 2:
             print("Saliendo del programa...")
             None
+        else:
+            print("Ingrese una opcion valida")
+            menu_opciones_main()
     else:
         print("Pruebe una opcion valida")
         menu_opciones_main()
@@ -253,29 +219,17 @@ def menu_opciones_admin_reclamos():
             menu_opciones_admin_reclamos()
         elif int(decision) == 2:
             menu_administrador()
+        else:
+            print("Pruebe una opcion valida")
+            menu_opciones_admin_reclamos()
     else:
         print("Pruebe una opcion valida")
         menu_opciones_admin_reclamos()
 
-def respuesta_invalida():
-    respuesta_invalida = True
-
-        while respuesta_invalida:
-            respuesta = (input("¿Que desea hacer?\n[1] Reintentar \
-                [2] Menu de inicio: "))
-            if respuesta.isdigit():
-                if int(respuesta) == 1:
-                    registrar_usuario()
-                    respuesta_invalida = False
-                elif int(respuesta) == 2:
-                    main_menu()
-                else:
-                    print("Ingrese una opcion valida.")
-                    respuesta_invalida = True
 
 
 
-
+#Ejecutar programa
 main_menu()
 
 
